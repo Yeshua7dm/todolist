@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <h2>ToDo</h2>
       <div>
-        <AddTodo newTodo={newtodo} />
+        <AddTodo newTodo={newtodo} changeHandler={(e) => setNewtodo(e.target.value)} />
 
         <div className="todos">
           {
