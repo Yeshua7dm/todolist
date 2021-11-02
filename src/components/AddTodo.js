@@ -1,7 +1,7 @@
 const AddTodo = ({newTodo, changeHandler, clickHandler}) => {
     return (
-        <div>
-           <input type="text" value={newTodo} onChange={changeHandler} name="" id="" /> 
+        <div className="addTodo">
+           <input className="new-todo" type="text" value={newTodo} onChange={changeHandler} name="" id="" placeholder="Enter a todo..." /> 
            <button onClick={clickHandler}>+</button>
         </div>
     )
