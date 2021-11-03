@@ -5,23 +5,7 @@ import Footer from "./components/Footer";
 
 function App() {
   // state using react hooks
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      todo: "Nothing 1",
-      status: true
-    },
-    {
-      id: 2,
-      todo: "Nothing 1",
-      status: true
-    },
-    {
-      id: 3,
-      todo: "Nothing 1",
-      status: false
-    },
-  ])
+  const [todos, setTodos] = useState([])
   const [newtodo, setNewtodo] = useState("")
 
   // methods for the App
@@ -48,8 +32,8 @@ function App() {
         <AddTodo clickHandler={addNew} newTodo={newtodo} changeHandler={(e) => setNewtodo(e.target.value)} />
 
         <div className="todos">
-          {
-            todos.map(todo => <Todo checkHandler={setStatus} key={todo.id} todo={todo} />)
+          { todos.length > 0 ?
+            todos.map(todo => <Todo checkHandler={setStatus} key={todo.id} todo={todo} />) : <p className="todo">No Todos Yet</p>
           }
 
           <Footer clearDone={clearCompleted} length={(todos.filter(todo => todo.status === false)).length}  />
